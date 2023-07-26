@@ -21,8 +21,11 @@ export const GetAllProducts = async () => {
   return jsonData;
 };
 
-export const GetSingleProduct = (id: number) => {
-  useFetch(`https://fakestoreapi.com/products/${id}`);
+export const GetSingleProduct = async (id: number) => {
+  const data = await fetch(`https://fakestoreapi.com/products/${id}`);
+  const jsonData = (await data.json()) as Product[];
+  // console.log(jsonData);
+  return jsonData;
 };
 
 export const GetCartProducts = () => {
