@@ -1,38 +1,42 @@
+import ReactStars from "react-rating-star-with-type";
+// import { Link } from "react-router-dom";
+import "./ProductCard.css";
+
 type Product = {
+  id: number;
   title: string;
   price: number;
   description: string;
   category: string;
   image: string;
-  rating: Rating;
+  rating: Rate;
 };
 
-type Rating = {
+type Rate = {
   rate: number;
   count: number;
 };
 
 export const ProductCard = (product: Product) => {
-  const Rating = require("react-rating");
-
   return (
-    <section>
-      <img src={product.image} />
-      <h2>{product.title}</h2>
-      <p>{product.description}</p>
-      <p>{product.price}</p>
-      <Rating
-        start={0}
-        stop={5}
-        step={1}
-        fractions={1}
-        initialRating={product.rating.rate}
-        readonly={true}
-        emptySymbol={
-          <img src="assets/images/star-empty.png" className="icon" />
-        }
-        fullSymbol={<img src="assets/images/star-full.png" className="icon" />}
-      />
-    </section>
+    <article className="card">
+      <img src={product.image} alt={product.title} className="card-img" />
+      <section className="card-container">
+        <h3 className="card-title">{product.title}</h3>
+        <p className="card-paragraph">{product.description}</p>
+        <ReactStars
+          value={product.rating.rate}
+          isEdit={false}
+          activeColors={["orange", "#FFCE00"]}
+        />
+        <p className="card-paragraph">{`Price: ${product.price}€`}</p>
+        <a href="#" className="card-button">
+          Shop Now
+        </a>
+        {/* <Link to={`/products/${product.id}`} className="card-button">
+          Shop Now
+        </Link> */}
+      </section>
+    </article>
   );
 };

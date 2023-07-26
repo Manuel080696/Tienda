@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: #cc081e;
+  --second-color: #7b7d7d;
+  --text-color-button: aliceblue;
+}
+
+li {
+  list-style: none;
+}
+
+.card {
+  width: 350px;
+  margin: 20px auto;
+}
+
+.card-img {
+  padding: 30px;
+  width: 100%;
+  height: 330px;
+  display: block;
+  border-left: thin solid var(--second-color);
+  border-right: thin solid var(--second-color);
+  border-top: thin solid var(--second-color);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.card-container {
+  padding: 30px;
+  text-align: center;
+  border-bottom: thin solid var(--second-color);
+  border-left: thin solid var(--second-color);
+  border-right: thin solid var(--second-color);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.card-title {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card-paragraph {
+  line-height: 1.5;
+  text-align: start;
+  font-weight: 300;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card-button {
+  display: inline-block;
+  background-color: var(--main-color);
+  color: var(--text-color-button);
+  text-decoration: none;
+  padding: 1rem 1rem;
+  margin-top: 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  width: 200px;
+  text-transform: uppercase;
+}

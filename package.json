@@ -13,7 +13,7 @@
     "fetch-suspense": "^1.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-rating": "^2.0.5"
+    "react-rating-star-with-type": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.4.4",

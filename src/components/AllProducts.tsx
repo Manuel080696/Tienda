@@ -1,7 +1,9 @@
-import { useGetAllProducts } from "../services/services";
+import useAllProducts from "../hooks/useAllProducts.ts";
 import { ProductCard } from "./ProductCard.tsx";
+import "./AllProducts.css";
 
 type Product = {
+  id: number;
   title: string;
   price: number;
   description: string;
@@ -16,16 +18,26 @@ type Rating = {
 };
 
 export const AllProducts = () => {
-  const products: FetchResponse = useGetAllProducts();
-  console.log(products);
+  const { products } = useAllProducts();
 
   return (
-    <ul>
-      {products?.map((product) => {
-        <li key={product.id}>
-          <ProductCard product={product} />
-        </li>;
-      })}
-    </ul>
+    <>
+      <h1 className="text_list">Lista de Productos</h1>
+      <ul className="container">
+        {products?.map((product: Product) => (
+          <li key={product.id}>
+            <ProductCard
+              id={product.id}
+              title={product.title}
+              price={product.price}
+              image={product.image}
+              description={product.description}
+              category={product.category}
+              rating={product.rating}
+            />
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };

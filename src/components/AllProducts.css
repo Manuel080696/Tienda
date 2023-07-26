@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+
+.container {
+  width: 90%;
+  height: 90%;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.text_list {
+  text-align: center;
+  margin: 20px auto;
+}
