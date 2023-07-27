@@ -29,11 +29,9 @@ const useSingleProduct = () => {
     const loadProduct = async () => {
       try {
         setLoading(true);
-<<<<<<< HEAD
+
         const data: Product = await GetSingleProduct(idNumber);
-=======
-        const data = await GetSingleProduct(idNumber);
->>>>>>> 98ddc8307ea7163a2ca21c53aa64878c8e7382b6
+
         if (data !== null) {
           return setProduct(data);
         }
