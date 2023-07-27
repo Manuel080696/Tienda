@@ -1,5 +1,9 @@
 import ReactStars from "react-rating-star-with-type";
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
+=======
+import { Link } from "react-router-dom";
+>>>>>>> 98ddc8307ea7163a2ca21c53aa64878c8e7382b6
 import "./ProductCard.css";
 import { Product } from "../models";
 
@@ -32,9 +36,16 @@ export const ProductCard = ({
           activeColors={["orange", "#FFCE00"]}
         />
         <p className="card-paragraph">{`Price: ${product.price}€`}</p>
+<<<<<<< HEAD
         <button className="card-button" onClick={() => add(product)}>
           Shop Now
         </button>
+=======
+
+        <Link to={`/products/${product.id}`} className="card-button">
+          Shop Now
+        </Link>
+>>>>>>> 98ddc8307ea7163a2ca21c53aa64878c8e7382b6
       </section>
     </article>
   );
