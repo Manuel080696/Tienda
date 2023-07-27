@@ -1,26 +1,28 @@
 import ReactStars from "react-rating-star-with-type";
-// import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./ProductCard.css";
+import { Product } from "../models";
 
-type Product = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: Rate;
-};
+export const ProductCard = ({
+  product,
+  add,
+}: {
+  add: (entry: Product) => Product[];
+  product: Product;
+}) => {
+  const navigate = useNavigate();
+  const handleClickEvent = () => {
+    navigate(`/products/${product.id}`);
+  };
 
-type Rate = {
-  rate: number;
-  count: number;
-};
-
-export const ProductCard = (product: Product) => {
   return (
     <article className="card">
-      <img src={product.image} alt={product.title} className="card-img" />
+      <img
+        src={product.image}
+        alt={product.title}
+        className="card-img"
+        onClick={() => handleClickEvent()}
+      />
       <section className="card-container">
         <h3 className="card-title">{product.title}</h3>
         <p className="card-paragraph">{product.description}</p>
@@ -30,12 +32,9 @@ export const ProductCard = (product: Product) => {
           activeColors={["orange", "#FFCE00"]}
         />
         <p className="card-paragraph">{`Price: ${product.price}€`}</p>
-        <a href="#" className="card-button">
+        <button className="card-button" onClick={() => add(product)}>
           Shop Now
-        </a>
-        {/* <Link to={`/products/${product.id}`} className="card-button">
-          Shop Now
-        </Link> */}
+        </button>
       </section>
     </article>
   );
