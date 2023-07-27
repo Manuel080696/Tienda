@@ -14,3 +14,35 @@
   text-align: center;
   margin: 20px auto;
 }
+
+.containerForm {
+  text-align: center;
+  display: flex;
+  justify-content: end;
+  margin-right: 2rem;
+  gap: 0.5rem;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
+
+select {
+  width: 100%;
+  cursor: pointer;
+  padding-left: 7px;
+  height: 30px;
+  width: 160px;
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  background: #f75757;
+  color: white;
+  font-size: 1em;
+  font-family: "Quicksand", sans-serif;
+  border: 2px solid rgba(44, 4, 4, 0.2);
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+/* select:hover {
+  background: #7e2525;
+} */

@@ -1,23 +1,13 @@
 import { ProductCard } from "./ProductCard.tsx";
 import "./AllProducts.css";
 import useSingleProduct from "../hooks/useSingleProduct.ts";
+import { Product } from "../models/index.ts";
 
-// type Product = {
-//   id: number;
-//   title: string;
-//   price: number;
-//   description: string;
-//   category: string;
-//   image: string;
-//   rating: Rating;
-// };
-
-// type Rating = {
-//   rate: number;
-//   count: number;
-// };
-
-export const SingleProduct = () => {
+export const SingleProduct = ({
+  add,
+}: {
+  add: (entry: Product) => Product[];
+}) => {
   const { product } = useSingleProduct();
 
   return (
@@ -26,15 +16,7 @@ export const SingleProduct = () => {
       {product === null ? (
         <h2>Cargando...</h2>
       ) : (
-        <ProductCard
-          id={product.id}
-          title={product.title}
-          price={product.price}
-          image={product.image}
-          description={product.description}
-          category={product.category}
-          rating={product.rating}
-        />
+        <ProductCard product={product} add={add} />
       )}
     </>
   );

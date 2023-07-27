@@ -41,3 +41,11 @@ export const GetAllUsers = () => {
 export const useGetSingleUser = (id: number) => {
   useFetch(`https://fakestoreapi.com/users/${id}`);
 };
+
+export const GetCategories = async (category: string) => {
+  const data = await fetch(
+    `https://fakestoreapi.com/products/category/${category}`
+  );
+  const jsonData = (await data.json()) as Product[];
+  return jsonData;
+};
