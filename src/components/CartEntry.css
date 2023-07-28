@@ -1,0 +1,19 @@
+.cart-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-image {
+  width: 80px;
+  height: 80px;
+  margin: 10px 30px;
+}
+
+.cart-price {
+  margin: 0 30px;
+}
+
+.cart-trash {
+  margin-left: 30px;
+}

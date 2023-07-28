@@ -1,5 +1,6 @@
 import ReactStars from "react-rating-star-with-type";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 import "./ProductCard.css";
 
 type Product = {
@@ -30,12 +31,9 @@ export const ProductCard = (product: Product) => {
           activeColors={["orange", "#FFCE00"]}
         />
         <p className="card-paragraph">{`Price: ${product.price}€`}</p>
-        <a href="#" className="card-button">
+        <Link to={`/product/${product.id}`} className="card-button">
           Shop Now
-        </a>
-        {/* <Link to={`/products/${product.id}`} className="card-button">
-          Shop Now
-        </Link> */}
+        </Link>
       </section>
     </article>
   );

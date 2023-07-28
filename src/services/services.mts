@@ -1,5 +1,3 @@
-import useFetch from "fetch-suspense";
-
 type Product = {
   id: number;
   title: string;
@@ -21,18 +19,20 @@ export const GetAllProducts = async () => {
   return jsonData;
 };
 
-export const GetSingleProduct = (id: number) => {
-  useFetch(`https://fakestoreapi.com/products/${id}`);
+export const GetSingleProduct = async (id: number) => {
+  const data = await fetch(`https://fakestoreapi.com/products/${id}`);
+  const jsonData = (await data.json()) as Product;
+  return jsonData;
 };
 
-export const GetCartProducts = () => {
-  useFetch("https://fakestoreapi.com/carts");
-};
+// export const GetCartProducts = () => {
+//   useFetch("https://fakestoreapi.com/carts");
+// };
 
-export const GetAllUsers = () => {
-  useFetch("https://fakestoreapi.com/users");
-};
+// export const GetAllUsers = () => {
+//   useFetch("https://fakestoreapi.com/users");
+// };
 
-export const useGetSingleUser = (id: number) => {
-  useFetch(`https://fakestoreapi.com/users/${id}`);
-};
+// export const useGetSingleUser = (id: number) => {
+//   useFetch(`https://fakestoreapi.com/users/${id}`);
+// };

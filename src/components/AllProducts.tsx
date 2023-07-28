@@ -22,7 +22,6 @@ export const AllProducts = () => {
 
   return (
     <>
-      <h1 className="text_list">Lista de Productos</h1>
       <ul className="container">
         {products?.map((product: Product) => (
           <li key={product.id}>
