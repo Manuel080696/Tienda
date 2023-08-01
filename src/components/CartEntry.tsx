@@ -3,7 +3,7 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 import "./CartEntry.css";
-import { parse } from "path";
+import { log } from "console";
 
 type Product = {
   id: number;
@@ -28,20 +28,28 @@ const CartEntry = ({ product }: CartEntryProps) => {
   const {
     productCart,
     setProductCart,
+    carCounter,
     setCarCounter,
     setShowCart,
     carTotalPrice,
     setCarTotalPrice,
   } = useContext(ProductContext);
   const HandleDeteleCart = () => {
-    const newCart = productCart.filter((item) => item.id !== product.id);
-    setProductCart(newCart);
-    setCarCounter(newCart.length);
-    const totalPrice = parseFloat((carTotalPrice - product.price).toFixed(2));
-    setCarTotalPrice(totalPrice);
-    if (newCart.length === 0) {
-      setShowCart(false);
-      setCarTotalPrice(0);
+    if (product.rating.count === 1) {
+      const newCart = productCart.filter((item) => item.id !== product.id);
+      setProductCart(newCart);
+      setCarCounter(carCounter - 1);
+      const totalPrice = parseFloat((carTotalPrice - product.price).toFixed(2));
+      setCarTotalPrice(totalPrice);
+      if (newCart.length === 0) {
+        setShowCart(false);
+        setCarTotalPrice(0);
+      }
+    } else {
+      setCarCounter(carCounter - 1);
+      product.rating.count = product.rating.count - 1;
+      const totalPrice = parseFloat((carTotalPrice - product.price).toFixed(2));
+      setCarTotalPrice(totalPrice);
     }
   };
 
@@ -50,6 +58,7 @@ const CartEntry = ({ product }: CartEntryProps) => {
       <img src={product.image} alt={product.title} className="cart-image" />
       <p className="cart-title">{product.title}</p>
       <p className="cart-price">{`Price: €${product.price}`}</p>
+      <p>Amount: {product.rating.count}</p>
       <FontAwesomeIcon
         icon={faTrashCan}
         size="lg"

@@ -35,6 +35,7 @@ const ProductDetail = () => {
     setProductCart,
     showCart,
     setShowCart,
+    carCounter,
     setCarCounter,
     carTotalPrice,
     setCarTotalPrice,
@@ -44,8 +45,13 @@ const ProductDetail = () => {
     if (!productCart.includes(product)) {
       setProductCart([...productCart, product]);
       setShowCart(true);
-      setCarCounter(productCart.length + 1);
-      setCarTotalPrice(carTotalPrice + product.price);
+      setCarCounter(carCounter + 1);
+      product.rating.count = 1;
+      setCarTotalPrice(parseFloat((carTotalPrice + product.price).toFixed(2)));
+    } else {
+      product.rating.count += 1;
+      setCarTotalPrice(parseFloat((carTotalPrice + product.price).toFixed(2)));
+      setCarCounter(carCounter + 1);
     }
   };
 

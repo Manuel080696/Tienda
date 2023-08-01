@@ -54,7 +54,7 @@
 
 .products-cart-container {
   grid-area: products-cart-container;
-  background-color: whitesmoke;
+  background-color: white;
   padding: 20px;
   margin-right: 10px;
   border: 1px solid var(--second-color);
