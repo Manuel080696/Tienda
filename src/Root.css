@@ -19,7 +19,7 @@
   display: grid;
   grid:
     "header" auto
-    "main" 1fr
+    "main" auto
     "footer" auto;
   gap: 10px;
   font-family: "Roboto", sans-serif;
@@ -114,22 +114,23 @@ a:focus::before {
 }
 .main {
   grid-area: main;
-  margin: 20px auto;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .footer {
   grid-area: footer;
+  position: fixed;
+  bottom: 0;
+
   width: 100%;
   min-height: 64px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 0.5rem;
   background-color: #fbeee6;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
 }
 
 .footer nav {

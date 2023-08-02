@@ -1,0 +1,107 @@
+:root {
+  --mainColor: black;
+  --firstColor: #e5e5f7;
+  --secondColor: #ffffff;
+  --thirdColor: #706c6c;
+  --fourthColor: #5757577e;
+  --fifthColor: #625df5;
+  --formShadow: rgb(0, 0, 0, 0.3);
+}
+
+body {
+  background-color: var(--firstColor);
+}
+
+.form {
+  background-color: var(--secondColor);
+  width: 90%;
+  max-width: 400px;
+  padding: 4.5rem 3rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px -5px var(--formShadow);
+  text-align: center;
+}
+.form__title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.form__paragraph {
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.form__link {
+  margin-left: 5px;
+  font-weight: 400;
+  color: var(--fifthColor);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form__container {
+  margin-top: 3rem;
+  display: grid;
+  gap: 2.5rem;
+}
+
+.form__group {
+  position: relative;
+}
+
+.form__input {
+  width: 100%;
+  background: none;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--thirdColor);
+  padding: 0.6rem 0.3rem;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--fourthColor);
+}
+
+.form__input:not(:placeholder-shown) + .form__label,
+.form__input:focus + .form__label {
+  transform: translateY(-12px) scale(0.9);
+  transform-origin: top left;
+  color: var(--fifthColor);
+}
+
+.form__label {
+  color: var(--fourthColor);
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  transform: translateY(10px);
+  transition: transform 0.5s, color 0.3s;
+}
+
+.form__submit {
+  background-color: var(--fifthColor);
+  color: var(--secondColor);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.8rem 0;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.form__line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--fifthColor);
+  transform: scale(0);
+  transform-origin: left bottom;
+  transition: transform 0.4s;
+}
+
+.form__input:not(:placeholder-shown) ~ .form__line,
+.form__input:focus ~ .form__line {
+  transform: scale(1);
+}

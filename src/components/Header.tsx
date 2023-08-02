@@ -39,7 +39,13 @@ export const Header = () => {
           size="lg"
           style={{ color: "#000000" }}
         />
-        <FontAwesomeIcon icon={faUser} size="lg" style={{ color: "#000000" }} />
+        <Link to="/login">
+          <FontAwesomeIcon
+            icon={faUser}
+            size="lg"
+            style={{ color: "#000000" }}
+          />
+        </Link>
         <FontAwesomeIcon
           icon={faHeart}
           size="lg"

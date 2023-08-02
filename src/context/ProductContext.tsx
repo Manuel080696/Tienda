@@ -26,8 +26,6 @@ type ProductContextType = {
   setCarTotalPrice: React.Dispatch<React.SetStateAction<number>>;
   amount: number;
   setAmount: React.Dispatch<React.SetStateAction<number>>;
-  cart: Product[];
-  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
 };
 
 export const ProductContext = React.createContext<ProductContextType>(
@@ -45,7 +43,6 @@ export const ProductProviderComponent = ({ children }: any) => {
   const storedTotalPriceParsed =
     storedTotalPrice && JSON.parse(storedTotalPrice);
 
-  const [cart, setCart] = useState();
   const [productCart, setProductCart] = useState<Product[]>(
     storedCartParsed || []
   );
@@ -78,8 +75,6 @@ export const ProductProviderComponent = ({ children }: any) => {
         setCarTotalPrice,
         amount,
         setAmount,
-        cart,
-        setCart,
       }}
     >
       {children}

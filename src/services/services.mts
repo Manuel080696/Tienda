@@ -32,3 +32,23 @@ export const GetSingleCategory = async (category: string) => {
   const jsonData = (await data.json()) as Product[];
   return jsonData;
 };
+
+export const GetLogin = async ({
+  username,
+  password,
+}: {
+  username: string;
+  password: string;
+}) => {
+  const data = await fetch("https://fakestoreapi.com/auth/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ username, password }),
+  });
+  console.log(data);
+
+  const jsonData = await data.json();
+  return jsonData;
+};
