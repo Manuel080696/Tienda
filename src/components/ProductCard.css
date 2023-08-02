@@ -15,8 +15,6 @@ li {
   border-left: thin solid var(--second-color);
   border-right: thin solid var(--second-color);
   border-top: thin solid var(--second-color);
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
 }
 
 .card-container {
@@ -25,8 +23,6 @@ li {
   border-bottom: thin solid var(--second-color);
   border-left: thin solid var(--second-color);
   border-right: thin solid var(--second-color);
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
 }
 
 .card-title {
@@ -53,8 +49,7 @@ li {
   text-decoration: none;
   padding: 1rem 1rem;
   margin-top: 1rem;
-  border-radius: 2rem;
   font-weight: 700;
-  width: 200px;
   text-transform: uppercase;
+  width: 200px;
 }

@@ -47,7 +47,35 @@ export const GetLogin = async ({
     },
     body: JSON.stringify({ username, password }),
   });
-  console.log(data);
+
+  const jsonData = await data.json();
+  return jsonData;
+};
+
+export const GetRegister = async () => {
+  const data = await fetch("https://fakestoreapi.com/users", {
+    method: "POST",
+    body: JSON.stringify({
+      email: "maxi@gmail.com",
+      username: "mvilarino",
+      password: "Diego2023",
+      name: {
+        firstname: "Maxi",
+        lastname: "Vilariño",
+      },
+      address: {
+        city: "kilcoole",
+        street: "7835 new road",
+        number: 3,
+        zipcode: "12926-3874",
+        geolocation: {
+          lat: "-37.3159",
+          long: "81.1496",
+        },
+      },
+      phone: "1-570-236-7033",
+    }),
+  });
 
   const jsonData = await data.json();
   return jsonData;

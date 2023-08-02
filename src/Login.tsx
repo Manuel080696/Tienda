@@ -2,26 +2,25 @@ import { useState } from "react";
 import { GetLogin } from "./services/services.mts";
 import toast, { Toaster } from "react-hot-toast";
 import "./Login.css";
+import { Link } from "react-router-dom";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const notify = () => toast.success("Send OK");
+  const [errorLogin, setErrorLogin] = useState("");
+  const notify = () => toast.success("Send data OK");
+  const errorBar = (errorLogin: string) => toast.error(errorLogin);
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
       const data = await GetLogin({ username, password });
-
       console.log(data);
     } catch (error: any) {
-      setError(error);
-      //   toast.error(error);
+      setErrorLogin(error.message);
+      errorBar(errorLogin);
     } finally {
       setUsername("");
       setPassword("");
     }
-
-    console.log("submit");
   };
   return (
     <>
@@ -54,19 +53,19 @@ const Login = () => {
           </section>
           <input
             type="submit"
-            value="Enter"
+            value="Send"
             className="form__submit"
             onClick={notify}
           />
           <p className="form__paragraph">
             You don't have an account?
-            <a href="#" className="form__link">
+            <Link to="/register" className="form__link">
               Sign up
-            </a>
+            </Link>
           </p>
         </section>
         <div>
-          <Toaster position="bottom-center" reverseOrder={false} />
+          <Toaster position="top-center" reverseOrder={false} />
         </div>
       </form>
     </>

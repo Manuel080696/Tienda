@@ -14,10 +14,11 @@ body {
 
 .form {
   background-color: var(--secondColor);
-  padding: 4.5rem 3rem;
+  padding: 3rem 3rem;
   border-radius: 10px;
   box-shadow: 0 5px 10px -5px var(--formShadow);
   text-align: center;
+  margin: 57px auto;
 }
 .form__title {
   font-size: 2rem;

@@ -8,6 +8,7 @@ import Jewelery from "./components/Jewelery";
 import MensClothing from "./components/MensClothing";
 import WomensClothing from "./components/WomensClothing";
 import Login from "./Login";
+import Register from "./Register";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/men's clothing" element={<MensClothing />} />
             <Route path="/women's clothing" element={<WomensClothing />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Route>
         </Routes>
       </Router>
