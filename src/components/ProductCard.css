@@ -42,6 +42,13 @@ li {
   overflow: hidden;
 }
 
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+
 .card-button {
   display: inline-block;
   background-color: var(--main-color);

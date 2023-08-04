@@ -46,11 +46,13 @@ export const Header = () => {
             style={{ color: "#000000" }}
           />
         </Link>
-        <FontAwesomeIcon
-          icon={faHeart}
-          size="lg"
-          style={{ color: "#000000" }}
-        />
+        <Link to="/favorites">
+          <FontAwesomeIcon
+            icon={faHeart}
+            size="lg"
+            style={{ color: "#000000" }}
+          />
+        </Link>
         <FontAwesomeIcon
           icon={faCartShopping}
           size="xl"

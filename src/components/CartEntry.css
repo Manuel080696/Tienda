@@ -12,6 +12,11 @@
 
 .cart-price {
   margin: 0 30px;
+  text-align: center;
+}
+
+.cart-amount {
+  text-align: center;
 }
 
 .cart-trash {

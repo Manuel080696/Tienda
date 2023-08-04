@@ -26,6 +26,8 @@ type ProductContextType = {
   setCarTotalPrice: React.Dispatch<React.SetStateAction<number>>;
   amount: number;
   setAmount: React.Dispatch<React.SetStateAction<number>>;
+  favorites: Product[];
+  setFavorites: React.Dispatch<React.SetStateAction<Product[]>>;
 };
 
 export const ProductContext = React.createContext<ProductContextType>(
@@ -43,6 +45,9 @@ export const ProductProviderComponent = ({ children }: any) => {
   const storedTotalPriceParsed =
     storedTotalPrice && JSON.parse(storedTotalPrice);
 
+  const storedFavorites = localStorage.getItem("favorites");
+  const storedFavoritesParsed = storedFavorites && JSON.parse(storedFavorites);
+
   const [productCart, setProductCart] = useState<Product[]>(
     storedCartParsed || []
   );
@@ -50,6 +55,9 @@ export const ProductProviderComponent = ({ children }: any) => {
   const [carCounter, setCarCounter] = useState(storedCounterParsed);
   const [carTotalPrice, setCarTotalPrice] = useState(storedTotalPriceParsed);
   const [amount, setAmount] = useState(0);
+  const [favorites, setFavorites] = useState<Product[]>(
+    storedFavoritesParsed || []
+  );
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(productCart));
@@ -62,6 +70,15 @@ export const ProductProviderComponent = ({ children }: any) => {
   useEffect(() => {
     localStorage.setItem("total-price", JSON.stringify(carTotalPrice));
   }, [carTotalPrice]);
+
+  useEffect(() => {
+    localStorage.setItem("total-price", JSON.stringify(carTotalPrice));
+  }, [carTotalPrice]);
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
+
   return (
     <ProductContext.Provider
       value={{
@@ -75,6 +92,8 @@ export const ProductProviderComponent = ({ children }: any) => {
         setCarTotalPrice,
         amount,
         setAmount,
+        favorites,
+        setFavorites,
       }}
     >
       {children}

@@ -29,7 +29,7 @@ const ProductsCart = () => {
         ))}
       </ul>
       <section className="products-cart-total-container">
-        <p className="products-cart-total">Total </p>
+        <p className="products-cart-total-title">Total </p>
         <p className="products-cart-total">{`${carTotalPrice} €`}</p>
       </section>
       <button className="products-cart-button">Start order</button>

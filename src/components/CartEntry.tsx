@@ -58,7 +58,7 @@ const CartEntry = ({ product }: CartEntryProps) => {
       <img src={product.image} alt={product.title} className="cart-image" />
       <p className="cart-title">{product.title}</p>
       <p className="cart-price">{`Price: €${product.price}`}</p>
-      <p>Amount: {product.rating.count}</p>
+      <p className="cart-amount">Amount: {product.rating.count}</p>
       <FontAwesomeIcon
         icon={faTrashCan}
         size="lg"

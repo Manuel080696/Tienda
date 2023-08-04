@@ -71,6 +71,11 @@
   margin: 10px 5px;
 }
 
+.products-cart-total-title {
+  font-weight: bold;
+  margin-left: 35px;
+}
+
 .products-cart-total {
   font-weight: bold;
 }
