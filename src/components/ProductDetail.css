@@ -14,12 +14,15 @@
 .detail-card {
   grid-area: detail-card;
   margin: 60px;
+}
+
+.detail-single-product {
   display: flex;
-  align-items: flex-start;
 }
 
 .detail-info {
   margin-left: 40px;
+  margin-top: 15px;
 }
 
 .detail-title {

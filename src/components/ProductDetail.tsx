@@ -1,23 +1,10 @@
 import { useParams } from "react-router-dom";
-import useSingleProduct from "../hooks/useSingleProduct";
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
+import useSingleProduct from "../hooks/useSingleProduct";
 import ProductsCart from "./ProductsCart";
+import { Product } from "../services/types";
 import "./ProductDetail.css";
-type Product = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: Rate;
-};
-
-type Rate = {
-  rate: number;
-  count: number;
-};
 
 type Params = {
   id: string;
@@ -58,15 +45,21 @@ const ProductDetail = () => {
   return (
     <section className="detail-container">
       <section className="detail-card">
-        <img src={product.image} alt={product.title} className="detail-image" />
-        <section className="detail-info">
-          <h1 className="detail-title">{product.title}</h1>
-          <h3 className="detail-paragraph">{`Category: ${product.category}`}</h3>
-          <p className="detail-description">{product.description}</p>
-          <h3 className="detail-paragraph">{`Price: ${product.price} €`}</h3>
-          <button className="detail-button" onClick={handleClick}>
-            Add to cart
-          </button>
+        <section className="detail-single-product">
+          <img
+            src={product.image}
+            alt={product.title}
+            className="detail-image"
+          />
+          <section className="detail-info">
+            <h1 className="detail-title">{product.title}</h1>
+            <h3 className="detail-paragraph">{`Category: ${product.category}`}</h3>
+            <p className="detail-description">{product.description}</p>
+            <h3 className="detail-paragraph">{`Price: ${product.price} €`}</h3>
+            <button className="detail-button" onClick={handleClick}>
+              Add to cart
+            </button>
+          </section>
         </section>
       </section>
       {showCart && <ProductsCart />}

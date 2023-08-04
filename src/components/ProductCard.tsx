@@ -2,24 +2,10 @@ import ReactStars from "react-rating-star-with-type";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import "./ProductCard.css";
 import { useContext, useState } from "react";
 import { ProductContext } from "../context/ProductContext";
-
-type Product = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: Rate;
-};
-
-type Rate = {
-  rate: number;
-  count: number;
-};
+import { Product } from "../services/types";
+import "./ProductCard.css";
 
 export const ProductCard = (product: Product) => {
   const [favorite, setFavorite] = useState(true);

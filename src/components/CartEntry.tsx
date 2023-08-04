@@ -2,23 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
+import { Product } from "../services/types";
 import "./CartEntry.css";
-import { log } from "console";
-
-type Product = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: Rate;
-};
-
-type Rate = {
-  rate: number;
-  count: number;
-};
 
 type CartEntryProps = {
   product: Product;

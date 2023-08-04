@@ -15,8 +15,9 @@ type Rating = {
   rate: number;
   count: number;
 };
-
 const useCategoryProducts = (category: string) => {
+  console.log(category);
+
   const [products, setProducts] = useState<Product[]>([]);
 
   const [loading, setLoading] = useState(true);

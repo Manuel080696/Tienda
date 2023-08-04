@@ -1,21 +1,7 @@
 import useCategoryProducts from "../hooks/useCategoryProducts";
 import { ProductCard } from "./ProductCard";
+import { Product } from "../services/types";
 import "./AllProducts.css";
-
-type Product = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: Rating;
-};
-
-type Rating = {
-  rate: number;
-  count: number;
-};
 
 const MensClothing = () => {
   const { products } = useCategoryProducts("men's clothing");

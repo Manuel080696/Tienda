@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
-import CartEntry from "./CartEntry";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
+import CartEntry from "./CartEntry";
 import "./ProductDetail.css";
 
 const ProductsCart = () => {
