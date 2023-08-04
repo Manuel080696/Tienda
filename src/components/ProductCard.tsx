@@ -1,5 +1,4 @@
-import ReactStars from "react-rating-star-with-type";
-
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./ProductCard.css";
@@ -17,27 +16,36 @@ export const ProductCard = ({
     navigate(`/products/${product.id}`);
   };
 
+  const [visiblecarrito, setVisiblecarrito] = useState<boolean>(false);
+
+  const handleEnterEvent = () => {
+    setVisiblecarrito(true);
+  };
+  const handleLeaveEvent = () => {
+    setVisiblecarrito(false);
+  };
+
   return (
     <article className="card">
-      <img
-        src={product.image}
-        alt={product.title}
-        className="card-img"
-        onClick={() => handleClickEvent()}
-      />
-      <section className="card-container">
-        <h3 className="card-title">{product.title}</h3>
-        <p className="card-paragraph">{product.description}</p>
-        <ReactStars
-          value={product.rating.rate}
-          isEdit={false}
-          activeColors={["orange", "#FFCE00"]}
+      <section className="imgCardShop">
+        <img
+          src={product.image}
+          alt={product.title}
+          className="card-img"
+          onClick={() => handleClickEvent()}
+          onMouseEnter={() => handleEnterEvent()}
+          onMouseLeave={() => handleLeaveEvent()}
         />
-        <p className="card-paragraph">{`Price: ${product.price}€`}</p>
+        {visiblecarrito && (
+          <button className="card-button" onClick={() => add(product)}>
+            Shop Now
+          </button>
+        )}
+      </section>
 
-        <button className="card-button" onClick={() => add(product)}>
-          Shop Now
-        </button>
+      <section className="card-container">
+        <p className="card-title">{product.title}</p>
+        <p className="card-price">{product.price}$</p>
       </section>
     </article>
   );

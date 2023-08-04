@@ -3,6 +3,7 @@ import { Root } from "./pages/Root";
 import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import { SingleProductPage } from "./pages/SingleProductPage";
+import "./App.css";
 
 const App = () => {
   return (

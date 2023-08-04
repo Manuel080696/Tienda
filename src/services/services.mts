@@ -15,8 +15,8 @@ type Rating = {
   count: number;
 };
 
-export const GetAllProducts = async () => {
-  const data = await fetch("https://fakestoreapi.com/products");
+export const GetAllProducts = async (categoria: string) => {
+  const data = await fetch(`https://fakestoreapi.com/products${categoria}`);
   const jsonData = (await data.json()) as Product[];
   return jsonData;
 };
@@ -25,7 +25,6 @@ export const GetSingleProduct = async (id: number) => {
   const data = await fetch(`https://fakestoreapi.com/products/${id}`);
 
   const jsonData = (await data.json()) as Product[];
-  // console.log(jsonData);
 
   return jsonData;
 };

@@ -17,7 +17,7 @@ type Rating = {
 };
 
 const useAllProducts = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [product, setProduct] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -25,8 +25,8 @@ const useAllProducts = () => {
     const loadAllProduts = async () => {
       try {
         setLoading(true);
-        const data = await GetAllProducts();
-        setProducts(data);
+        const data = await GetAllProducts("/");
+        setProduct(data);
       } catch (error) {
         typeof error == "string" && setError(error);
       } finally {
@@ -36,7 +36,7 @@ const useAllProducts = () => {
     loadAllProduts();
   }, []);
 
-  return { products, loading, error };
+  return { product, loading, error };
 };
 
 export default useAllProducts;

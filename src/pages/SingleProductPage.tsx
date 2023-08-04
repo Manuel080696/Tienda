@@ -1,10 +1,15 @@
+import { OtherRelationatedProducts } from "../components/OtherRelationatedProducts";
 import { SingleProduct } from "../components/SingleProduct";
-import { useParams } from "react-router-dom";
+
+import useList from "../hooks/useListCart";
 
 export const SingleProductPage = () => {
-  let { id } = useParams();
+  const { add } = useList();
 
-  const idProduct = parseInt(id as string);
-
-  return <SingleProduct id={idProduct} />;
+  return (
+    <>
+      <SingleProduct add={add} />
+      <OtherRelationatedProducts />
+    </>
+  );
 };
