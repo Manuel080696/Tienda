@@ -21,21 +21,26 @@ export function Cart({
 }) {
   const handleClick = () => {
     if (list.length === 0) {
-      null;
+      setCarritoVisible(false);
     } else {
       setCarritoVisible(!carritoVisible);
     }
   };
 
   return (
-    <aside className={!carritoVisible ? "carrito" : "carrito-visible"}>
+    <aside
+      className={
+        !carritoVisible || list.length === 0 ? "carrito" : "carrito-visible"
+      }
+    >
       <FontAwesomeIcon
         className="cartIcon"
         icon={faCartShopping}
         size="2xl"
-        style={{ color: "#1e2d48" }}
+        style={{ color: "black" }}
         onClick={() => handleClick()}
       />
+
       <div className={carritoVisible ? "active" : "hidden"}>
         {list?.map((product: Product) => (
           <ul key={product.id}>

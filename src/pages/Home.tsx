@@ -1,5 +1,5 @@
 import { Tienda } from "../components/Tienda";
 
-export const Home = () => {
+export const HomePage = () => {
   return <Tienda />;
 };

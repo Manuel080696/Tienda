@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useContext } from "react";
 import { Product } from "../models";
+import { CartContext } from "../context/cartContext";
 
 const useList = () => {
-  const [carritoVisible, setCarritoVisible] = useState<boolean>(false);
-
-  const local = JSON.parse(localStorage.getItem("cart"));
-  const [list, setList] = useState<Product[]>(local || []);
+  const { carritoVisible, setCarritoVisible, list, setList } =
+    useContext(CartContext);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(list));

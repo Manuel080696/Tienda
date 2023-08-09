@@ -1,14 +1,19 @@
 import "./ProductCard.css";
 import ReactStars from "react-rating-star-with-type";
 import useSingleProduct from "../hooks/useSingleProduct.ts";
+import { Product } from "../models/index.ts";
+import { CartContext } from "../context/cartContext.tsx";
+import { useContext } from "react";
 
 export const SingleProduct = ({
   add,
 }: {
   add: (entry: Product) => Product[];
-  product: Product;
 }) => {
   const { product } = useSingleProduct();
+  const { list } = useContext(CartContext);
+
+  const productModify = product && list.find((p) => p.id === product.id);
 
   return (
     <>
@@ -40,7 +45,11 @@ export const SingleProduct = ({
                 <p className="card-price-single">{product.price}$</p>
                 <button
                   className="card-button-single"
-                  onClick={() => add(product)}
+                  onClick={() => {
+                    list.find((p) => p.id === product.id)
+                      ? productModify && add(productModify)
+                      : add(product);
+                  }}
                 >
                   Shop Now
                 </button>

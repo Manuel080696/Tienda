@@ -3,11 +3,7 @@ import "./OtherRelationatedProducts.css";
 import { Product } from "../models/index.ts";
 import useCategoryProduct from "../hooks/useCategoryProduct.ts";
 
-export const OtherRelationatedProducts = ({
-  add,
-}: {
-  add: (entry: Product) => Product[];
-}) => {
+export const OtherRelationatedProducts = () => {
   const { producto } = useCategoryProduct();
 
   return (
@@ -16,7 +12,7 @@ export const OtherRelationatedProducts = ({
       <ul className="container">
         {producto?.map((product: Product) => (
           <li key={product.id}>
-            <ProductCard product={product} add={add} />
+            <ProductCard product={product} />
           </li>
         ))}
       </ul>

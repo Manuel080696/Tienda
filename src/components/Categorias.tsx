@@ -1,12 +1,11 @@
-import React from "react";
+import { useContext } from "react";
 import { GetAllProducts } from "../services/services.mts";
 import "./ProductCard.css";
+import { CategoriesContext } from "../context/categoriesContext";
 
-export const Categorias = ({
-  setProducts,
-}: {
-  setProducts: React.Dispatch<React.SetStateAction<Product[] | undefined>>;
-}) => {
+export const Categorias = () => {
+  const { setProducts } = useContext(CategoriesContext);
+
   const handleCategoryChange = async (data: string) => {
     const selectedCategory = data;
     switch (selectedCategory) {
@@ -33,7 +32,7 @@ export const Categorias = ({
   return (
     <>
       <section className="containerSection">
-        <h3>Categoris</h3>
+        <h3>Categories</h3>
         <ul>
           <li onClick={() => handleCategoryChange("all")}>All</li>
           <li onClick={() => handleCategoryChange("electronics")}>
